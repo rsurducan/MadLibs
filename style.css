@@ -1,0 +1,16 @@
+/* Styles go here */
+
+input {
+  display: table-cell;
+}
+.row{
+    display:table-row;
+}
+
+body {
+  margin-left: 10px;
+}
+.container {
+  padding: 10px;
+  border: 1px solid black;
+}
