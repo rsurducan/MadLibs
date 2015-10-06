@@ -1,16 +1,41 @@
 /* Styles go here */
 
-input {
-  display: table-cell;
-}
-.row{
-    display:table-row;
+body {
+  margin: 10px;
 }
 
-body {
-  margin-left: 10px;
+.myController{
+  width: 100%;
+  display: block;
+  clear: both;
 }
+
 .container {
   padding: 10px;
-  border: 1px solid black;
+  width: 40%;
+  display: block;
+  clear: both;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row{
+    display:inline-block;
+    margin-right: auto;
+    margin-left: auto;
+    width: auto;
+}
+
+.column{
+	float: left;
+	width: auto;
+	display: inline-block;
+}
+
+.center{
+	text-align: center;
+}
+
+input {
+  display: table-cell;
 }
