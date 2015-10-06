@@ -17,27 +17,35 @@
       </div>
     </div>
     <div ng-controller="myCtrl" class="myController">
-      <div class="container center">
+      <div class="container center" ng-show="generator">
         <h3>Provide the following words</h3>
+        <form name="myForm" ng-submit="generateMadLib()">
           <div class="row center">
-            <input type="text" ng-model="female_name" placeholder="{{FemaleNamePH}}">
-            <input type="text" ng-model="dirty_task" placeholder="{{DirtyTaskPH}}">
-            <input type="text" ng-model="obnoxious_celebrity" placeholder="{{ObnoxiousCelebrityPH}}">
+            <input type="text" ng-model="data.female_name" placeholder="{{FemaleNamePH}}" required />
+            <input type="text" ng-model="data.dirty_task" placeholder="{{DirtyTaskPH}}" required />
+            <input type="text" ng-model="data.obnoxious_celebrity" placeholder="{{ObnoxiousCelebrityPH}}" required />
           </div>
           <div class="row center">
-            <input type="text" ng-model="job_title" placeholder="{{JobTitlePH}}">
-            <input type="text" ng-model="celebrity" placeholder="{{CelebrityPH}}">
-            <input type="text" ng-model="huge_number" placeholder="{{HugeNumberPH}}">
+            <input type="text" ng-model="data.job_title" placeholder="{{JobTitlePH}}" required />
+            <input type="text" ng-model="data.celebrity" placeholder="{{CelebrityPH}}" required />
+            <input type="number" ng-model="data.huge_number" placeholder="{{HugeNumberPH}}" required />
           </div>
           <div class="row center">
-            <input type="text" ng-model="tedious_task" placeholder="{{TediousTaskPH}}">
-            <input type="text" ng-model="useless_skill" placeholder="{{UselessSkillPH}}">
-            <input type="text" ng-model="adjective" placeholder="{{AdjectivePH}}">
+            <input type="text" ng-model="data.tedious_task" placeholder="{{TediousTaskPH}}" required />
+            <input type="text" ng-model="data.useless_skill" placeholder="{{UselessSkillPH}}" required />
+            <input type="text" ng-model="data.adjective" placeholder="{{AdjectivePH}}" required />
           </div>
+          <div>
+            <button>Generate My Mad Lib</button>
+          </div>
+        </form>
       </div>
-      <div class="container">
-        <p>{{ female_name || '\{\{female name\}\}'}} was a {{job_title || '\{\{job title\}\}'}} who loved technology. Although she loved parts of her job, she absolutely hated  {{tedious_task || '\{\{tedious taks\}\}'}} and {{dirty_task || '\{\{dirty task\}\}'}}. So, {{female_name || '\{\{female name\}\}'}} met with her life mentor {{celebrity || '\{\{celebrity\}\}'}} who told her to learn how to {{useless_skill || '\{\{useless skill\}\}'}} with Thinkful. Thinkful didn't offer a course on {{useless_skill || '\{\{useless skill\}\}'}} so she studied programming instead.</p>
-        <p>What a great decision! With her new skills, {{female_name || '\{\{female name\}\}'}} built a(n) {{adjective || '\{\{adjective\}\}'}} robot named {{obnoxious_celebrity || '\{\{obnoxious celebrity\}\}'}} that not only loved {{dirty_task || '\{\{dirty task\}\}'}} but did it {{huge_number || '\{\{huge number\}\}'}} faster.</p>
+      <div class="container" ng-hide="generator">
+        <p>{{ data.female_name || '\{\{female name\}\}'}} was a {{data.job_title || '\{\{job title\}\}'}} who loved technology. Although she loved parts of her job, she absolutely hated  {{data.tedious_task || '\{\{tedious taks\}\}'}} and {{data.dirty_task || '\{\{dirty task\}\}'}}. So, {{data.female_name || '\{\{female name\}\}'}} met with her life mentor {{data.celebrity || '\{\{celebrity\}\}'}} who told her to learn how to {{data.useless_skill || '\{\{useless skill\}\}'}} with Thinkful. Thinkful didn't offer a course on {{data.useless_skill || '\{\{useless skill\}\}'}} so she studied programming instead.</p>
+        <p>What a great decision! With her new skills, {{data.female_name || '\{\{female name\}\}'}} built a(n) {{data.adjective || '\{\{adjective\}\}'}} robot named {{data.obnoxious_celebrity || '\{\{obnoxious celebrity\}\}'}} that not only loved {{data.dirty_task || '\{\{dirty task\}\}'}} but did it {{data.huge_number || '\{\{huge number\}\}'}} faster.</p>
+        <div>
+          <a class="btn" ng-click="startOver()">Start Over</a>
+        </div>
       </div>
     </div>
   </body>
